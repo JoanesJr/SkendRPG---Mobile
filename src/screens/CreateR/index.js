@@ -10,17 +10,17 @@ const list = [
   {
     id: 1,
     name: 'Guerra de Clãs',
-    img: 'https://criticalhits.com.br/wp-content/uploads/2021/05/gojo-seis-olhos.jpg'
+    img: 'https://cdn-icons-png.flaticon.com/512/2619/2619285.png'
   },
   {
     id: 2,
     name: 'Armagedom',
-    img: 'https://i.pinimg.com/originals/0a/cb/b3/0acbb35e0bab6af2fb75a3ad560b9e70.png'
+    img: 'https://img2.gratispng.com/20180727/bfy/kisspng-role-playing-game-computer-icons-role-play-5b5b9461491d67.5348043115327284172995.jpg'
   },
   {
     id: 3,
     name: 'One Piece',
-    img: 'https://i.pinimg.com/originals/0c/3b/37/0c3b3706c269e6a056d15ff930614d50.jpg'
+    img: 'https://i.pinimg.com/564x/ce/57/64/ce5764850b07a3453fdf74e29f6e4c46.jpg'
   }
 ];
 
