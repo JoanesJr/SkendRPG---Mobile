@@ -81,7 +81,7 @@ export default function Home({ navigation }) {
        data={list}
        keyExtractor={(item) => String(item.id)}
        showsVerticalScrollIndicator={false}
-       renderItem={({ item }) => <Card data={item} />}
+       renderItem={({ item }) => <Card data={item} navigation={navigation} type='ficha' />}
      />
    </Container>
   );

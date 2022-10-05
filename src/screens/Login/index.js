@@ -21,7 +21,7 @@ export default function Login({ navigation }) {
                 <BtnLogin activeOpacity={0.8} onPress={() => navigation.navigate('Home')} >
                     <Text style={styles.btnText}>Entrar</Text>
                 </BtnLogin>
-                <BtnLogin activeOpacity={0.8} style={{ backgroundColor: '#F3D232'}}>
+                <BtnLogin activeOpacity={0.8} style={{ backgroundColor: '#F3D232'}} onPress={() => navigation.navigate('Register')} >
                     <Text style={styles.btnText}>Registre-se</Text>
                 </BtnLogin>
             </ButtonsArea>

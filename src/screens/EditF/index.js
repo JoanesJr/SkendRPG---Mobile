@@ -6,12 +6,12 @@ import Ficha from '../../components/Ficha';
 
 import { Container } from '../Home/style';
 
-export default function CreateF({ navigation }) {
+export default function EditF({ navigation, route }) {
  return (
     <Container flex={1}>
       <Header stack={true} navigation={navigation} title="SkendRPG"  />
 
-      <Ficha navigation={navigation} buttonText="Adicionar" edit={false} />
+      <Ficha navigation={navigation} buttonText="Editar" edit={true} />
     </Container>
    
   );

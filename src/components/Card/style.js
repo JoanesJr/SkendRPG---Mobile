@@ -22,12 +22,18 @@ export const Img = styled.Image`
 
 export const TextArea = styled.View`
     flex-direction: row;
-    justify-content: space-between;
-    width: 250px;
+    justify-content: space-around;
+    width: 350px;
 `;
 
 export const Text = styled.Text`
     font-size: 14px;
     color: white;
     font-weight: bold;
+`;
+
+export const TextContainer = styled.View`
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end
 `;

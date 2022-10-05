@@ -6,11 +6,11 @@ import ActionScroll from '../ActionScroll';
 
 import { Container } from '../Header/style';
 
-export default function ActionsF({ navigation }) {
+export default function ActionsH({ navigation }) {
     return (
         <View>
             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.container} >
-                <ActionScroll icon="addfolder" size={27} label="Criar RPG" color="black" colorText="white" navigation={navigation} to="CreateRRPG" />
+                <ActionScroll icon="addfolder" size={27} label="Criar Habilidade" color="black" colorText="white" navigation={navigation} to="CreateHability" />
                 {/* <ActionScroll icon="folder1" size={27} label="RPG" color="black" colorText="white" navigation={navigation} to="CreateR" /> */}
             </ScrollView>
         </View>
