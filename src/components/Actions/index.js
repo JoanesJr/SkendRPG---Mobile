@@ -12,14 +12,14 @@ export default function Actions({ navigation }) {
          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={styles.container} >
              <ActionScroll icon="adduser" size={27} label="Criar Ficha" color="black" colorText="white" navigation={navigation} to="CreateF" />
              <ActionScroll icon="folder1" size={27} label="RPG" color="black" colorText="white" navigation={navigation} to="CreateR" />
-             <ActionScroll icon="addfolder" size={27} label="Entradas" color="black" colorText="white" navigation={navigation} to="" />
-             <ActionScroll icon="addfolder" size={27} label="Entradas" color="black" colorText="white" navigation={navigation} to="" />
-             <ActionScroll icon="addfolder" size={27} label="Entradas" color="black" colorText="white" navigation={navigation} to="" />
-             <ActionScroll icon="tagso" size={27} label="Entradas" color="black" colorText="white" navigation={navigation} to="" />
+             {/* <ActionScroll icon="addfolder" size={27} label="Entradas" color="black" colorText="white" navigation={navigation} to="" />
              <ActionScroll icon="addfolder" size={27} label="Entradas" color="black" colorText="white" navigation={navigation} to="" />
              <ActionScroll icon="addfolder" size={27} label="Entradas" color="black" colorText="white" navigation={navigation} to="" />
              <ActionScroll icon="tagso" size={27} label="Entradas" color="black" colorText="white" navigation={navigation} to="" />
+             <ActionScroll icon="addfolder" size={27} label="Entradas" color="black" colorText="white" navigation={navigation} to="" />
+             <ActionScroll icon="addfolder" size={27} label="Entradas" color="black" colorText="white" navigation={navigation} to="" />
              <ActionScroll icon="tagso" size={27} label="Entradas" color="black" colorText="white" navigation={navigation} to="" />
+             <ActionScroll icon="tagso" size={27} label="Entradas" color="black" colorText="white" navigation={navigation} to="" /> */}
          </ScrollView>
     </View>
          

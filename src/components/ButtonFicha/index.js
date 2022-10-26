@@ -3,10 +3,10 @@ import { View, Text } from 'react-native';
 
 import { Button } from './style';
 
-export default function ButtonFicha( {title, color, icon, navigation, background, to} ) {
+export default function ButtonFicha( {title, color, icon, navigation, background, press, edit} ) {
  return (
    <>
-    <Button style={{ backgroundColor: background }} onPress={() => navigation.navigate(to)} >
+    <Button style={{ backgroundColor: background }} onPress={press} >
         <Text style={{ color: color, fontWeight: 'bold' }} >{title}</Text>
     </Button>
    </>

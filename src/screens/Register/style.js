@@ -25,6 +25,10 @@ export const InputFile = styled.TouchableOpacity`
     background-color: #BBA227;
     margin-top: 10px;
     border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
 
 `;
 

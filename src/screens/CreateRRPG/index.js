@@ -4,10 +4,11 @@ import * as ImagePicker from 'expo-image-picker';
 
 import Header from '../../components/Header';
 import { Container, Input, FormArea, ButtonsArea, BtnLogin, InputFile, BtnAdd } from '../Login/style';
+import api from '../../api/api';
 
 export default function CreateRRPG({ navigation }) {
 
-  const [group, setGroup] = useState("");
+  const [name, setName] = useState("");
   const [image, setImage] = useState("");
 
   const pickImage = async () => {
@@ -26,6 +27,24 @@ export default function CreateRRPG({ navigation }) {
     }
   };
 
+  const makeRpg = async () => {
+    const data = {
+      name, 
+      image,
+      user_id: 1,
+    };
+
+    await api.post("rpg", data).then(({data}) => {
+      navigation.navigate('CreateR');
+    }).catch(({response}) => {
+      console.log("deu ruim");
+      // console.log(response);
+    })
+
+
+    
+  }
+
  return (
   <>
   <Header title="SkendRPG" stack={true} navigation={navigation} />
@@ -36,14 +55,14 @@ export default function CreateRRPG({ navigation }) {
      </View>
 
      <FormArea>
-       <Input placeholder=" Nome" autoCorrect={false} value={group} onChangeText={(e) => setGroup(e)} />
+       <Input placeholder=" Nome" autoCorrect={false} value={name} onChangeText={(e) => setName(e)} />
          <InputFile onPress={pickImage}>
           <Text style={styles.textFile} > Imagem </Text>
          </InputFile>
      </FormArea>
 
      <ButtonsArea>
-         <BtnAdd activeOpacity={0.8} onPress={() => navigation.navigate('CreateR')} >
+         <BtnAdd activeOpacity={0.8} onPress={makeRpg} >
          <Text style={styles.btnText}>Adicionar</Text>
        </BtnAdd>
      </ButtonsArea>

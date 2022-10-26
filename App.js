@@ -20,7 +20,8 @@ import Items from './src/screens/Items';
 import CreateItem from './src/screens/Items/CreateItem';
 import Register from './src/screens/Register';
 
-function TabsEditFicha() {
+function TabsEditFicha({navigation, route}) {
+  const {params} = route;
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -45,17 +46,17 @@ function TabsEditFicha() {
         tabBarInactiveTintColor: 'gray',
       })}
     >
-      <Tab.Screen name="HomeFicha" component={EditF} options={{
+      <Tab.Screen name="HomeFicha" component={EditF} initialParams={params} options={{
         title: 'Home',
         headerTransparent: true,
-        headerShown: false
+        headerShown: false,
       }} />
-      <Tab.Screen name="Habilities" component={Habilities} options={{
+      <Tab.Screen name="Habilities" component={Habilities} initialParams={params} options={{
           title: 'Habilidades',
           headerTransparent: true,
           headerShown: false
         }} />
-      <Tab.Screen name="Items" component={Items} options={{
+      <Tab.Screen name="Items" component={Items} initialParams={params} options={{
           title: 'Itens',
           headerTransparent: true,
           headerShown: false

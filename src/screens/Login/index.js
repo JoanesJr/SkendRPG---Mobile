@@ -1,11 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Image, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 import { Container, Input, FormArea, ButtonsArea, BtnLogin } from './style';
+import api from "../../api/api";
+import ValidationErrors from '../../services/ValidationErrors';
 
-export default function Login({ navigation }) {
+export default function Login({ navigation, route }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [errorEmail, setErrorEmail] = useState(false);
+    const [errorPassword, setErrorPassword] = useState(false);
+
+    const login = async () => {
+        const data = {
+            email,
+            password
+        }
+
+        await api.post("login", data).then(({data}) => {
+            // console.log("deu bom");
+            // console.log(data)
+            navigation.navigate('Home');
+        }).catch(({response}) => {
+            // console.log('deu ruim');
+            // console.log(response.data)
+            setErrorEmail(ValidationErrors.validate(response, "email"));
+            setErrorPassword(ValidationErrors.validate(response, "password"));
+        });
+
+       
+    }
+
+    
     return (
         <Container>
             <View>
@@ -13,12 +39,13 @@ export default function Login({ navigation }) {
             </View>
 
             <FormArea>
-                <Input placeholder=" E-mail" autoCorrect={false} value={email} onChangeText={(e) => setEmail(e)} />
-                <Input placeholder="Senha" autoCorrect={false} secureTextEntry={true} value={password} onChangeText={(e) => setPassword(e)} />
+                {(errorEmail || errorPassword) && <Text style={styles.error}>E-mail ou senha incorretos</Text>}
+                <Input placeholder=" E-mail" autoCorrect={false} onChangeText={(e) => setEmail(e)} value={email} />
+                <Input placeholder="Senha" autoCorrect={false} secureTextEntry={true} onChangeText={(e) => setPassword(e)} value={password} />
             </FormArea>
 
             <ButtonsArea>
-                <BtnLogin activeOpacity={0.8} onPress={() => navigation.navigate('Home')} >
+                <BtnLogin activeOpacity={0.8} onPress={login} >
                     <Text style={styles.btnText}>Entrar</Text>
                 </BtnLogin>
                 <BtnLogin activeOpacity={0.8} style={{ backgroundColor: '#F3D232'}} onPress={() => navigation.navigate('Register')} >
@@ -34,5 +61,10 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 18,
         fontWeight: 'bold'
+    },
+    error: {
+        color: 'red',
+        paddingLeft: 12,
+        marginTop: 5
     }
 });

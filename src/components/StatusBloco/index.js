@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native';
 import { Container, Line, ContainerTitle, ContainerStatus } from './style';
 
-export default function StatusBloco({ title, edit, value }) {
+export default function StatusBloco({ title, edit, value, setAttr }) {
     const [status, setStatus] = useState(value);
     const [modificator, setModificator] = useState(0);
     const [operator, setOperator] = useState("");
@@ -16,7 +16,8 @@ export default function StatusBloco({ title, edit, value }) {
 
     function changeStatus(value) {
         changeMod(value)
-        setStatus(value.replace(/ /g, ""));
+        setStatus(String(value.replace(/ /g, "")));
+        setAttr(String(value.replace(/ /g, "")));
     }
 
     function changeMod(value) {
@@ -39,35 +40,19 @@ export default function StatusBloco({ title, edit, value }) {
     return (
 
         <>
-            {edit ? 
-            
+           
                 <Container>
                     <ContainerStatus flex={3} style={styles.separator}>
                         <Text style={styles.modificator} > {operator} {modificator} </Text>
                         <Line></Line>
                     </ContainerStatus>
                     <ContainerStatus flex={4} style={styles.separator}>
-                        <TextInput style={styles.value}>{status}</TextInput>
-                    </ContainerStatus>
-                    <ContainerTitle flex={1}>
-                        <TextInput> {title}</TextInput>
-                    </ContainerTitle>
-                </Container>
-            
-            :
-                <Container>
-                    <ContainerStatus flex={3} style={styles.separator}>
-                        <Text style={styles.modificator} > {operator} {modificator} </Text>
-                        <Line></Line>
-                    </ContainerStatus>
-                    <ContainerStatus flex={4} style={styles.separator}>
-                        <TextInput style={styles.value} keyboardType="numeric" onChangeText={changeStatus} value={status} />
+                        <TextInput style={styles.value} keyboardType="numeric" onChangeText={changeStatus} value={value} />
                     </ContainerStatus>
                     <ContainerTitle flex={1}>
                         <Text> {title}</Text>
                     </ContainerTitle>
                 </Container>
-            }
         </>
 
 
